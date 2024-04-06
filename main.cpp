@@ -8,8 +8,8 @@ int main() {
 
 	int A[20];
 
-	for (int i = 0; i < 20; i++) { 
-		A[i] = (i + 1) * 2; 
+	for (int i = 0; i < 20; i++) {
+		A[i] = (i + 1) * 2;
 	}
 
 	int* ini = A;
@@ -24,7 +24,27 @@ int main() {
 		cout << "Encontrado\n";
 	}
 	else {
-		cout << "No encontrado";
+		cout << "No encontrado\n";
+	}
+
+	if (BinBus(ini, fin, pos, 21)) {
+		cout << "Encontrado\n";
+	}
+	else {
+		cout << "No encontrado\n";
+	}
+	ini = A;
+	if (BinBus(ini, fin, pos, 2)) {
+		cout << "Encontrado\n";
+	}
+	else {
+		cout << "No encontrado\n";
+	}
+	if (BinBus(ini, fin, pos, 40)) {
+		cout << "Encontrado\n";
+	}
+	else {
+		cout << "No encontrado\n";
 	}
 
 	return EXIT_SUCCESS;
@@ -34,19 +54,19 @@ bool BinBus(int* ini, int* fin, int*& pos, int key) {
 	pos = ini;
 	while (ini <= fin) {
 
-		pos = pos + ((fin - ini)/2);
+		pos = ini + ((fin - ini) / 2);
 
-		cout << *pos << " ";
+		//cout << *pos << " ";
 
 		if (*pos < key) {
 			ini = pos + 1;
 		}
-		else if(*pos > key) {
+		else if (*pos > key) {
 			fin = pos - 1;
-			cout << "fin: " << *fin << endl;
+			//cout << "fin: " << *fin << endl;
 		}
 		else {
-			cout << "localizado\n";
+			//cout << "localizado\n";
 			return true;
 		}
 	}
